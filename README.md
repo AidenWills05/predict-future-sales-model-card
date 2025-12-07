@@ -42,17 +42,16 @@ The data was sorted by shop_id, item_id and date_block_num. Then item_cnt_month 
 - Validation rows (month 33): about 34 thousand  
 - Final full training rows for refit: about 1.18 million  
 
-### Data dictionary (training data after aggregation)
+Data dictionary (training data after aggregation to monthly level):
 
-| Column | Modeling role | Measurement level | Description |
-|--------|----------------|-------------------|-------------|
-| **date_block_num** | Feature | Numeric integer | Month index from 0 to 33 representing elapsed time |
-| **shop_id** | Feature | Categorical integer ID | Shop identifier |
-| **item_id** | Feature | Categorical integer ID | Item identifier |
-| **item_cnt_month** | Target | Numeric continuous | Monthly sales count for each shop and item |
-| **item_cnt_month_lag1** | Feature | Numeric continuous | Previous month sales for each shop and item |
+| Column              | Modeling role | Measurement level       | Description                                                          |
+|---------------------|--------------|--------------------------|----------------------------------------------------------------------|
+| date_block_num      | Feature      | Numeric (integer)        | Month index from 0 to 33 representing time since Jan 2013           |
+| shop_id             | Feature      | Categorical (integer ID) | Location (shop) where the item was sold                             |
+| item_id             | Feature      | Categorical (integer ID) | Unique item identifier                                               |
+| item_cnt_month      | Target       | Numeric (continuous)     | Total units of the item sold in that shop during that month         |
+| item_cnt_month_lag1 | Feature      | Numeric (continuous)     | Previous month’s item_cnt_month for each shop–item combination      |
 
-(If your final training dataframe truly only contains the five columns above then this table is complete.)
 
 ---
 
@@ -113,12 +112,14 @@ RMSE was used for training, validation and test.
 **Training RMSE:**  
 6.052667207299196  
 
-**Validation RMSE (month 33):**  
-About 14.13  
+Metrics summary:
 
-**Kaggle test results:**  
-Public leaderboard RMSE: about 1.12918  
-Private leaderboard RMSE: about 1.12705  
+| Dataset               | Metric | Value    |
+|-----------------------|--------|---------:|
+| Validation (month 33) | RMSE   | ~14.13   |
+| Kaggle public test    | RMSE   | ~1.12918 |
+| Kaggle private test   | RMSE   | ~1.12705 |
+ 
 
 ### Interpretation
 The baseline one lag linear regression performs reasonably well and is close to typical public benchmark scores. It underfits high volume items and does not model seasonality or item trends. More advanced feature engineering or models like LightGBM, XGBoost or neural nets would perform better.
