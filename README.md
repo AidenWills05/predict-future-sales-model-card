@@ -152,3 +152,15 @@ Displays predictions compared to true values with a red diagonal reference line.
 **Unexpected results**
 - The RandomForestRegressor performed worse than simple linear regression  
 - For many items last month’s sales alone explained most of the variation  
+
+---
+
+## AI Use
+
+I used AI tools (Perplexity / ChatGPT-style assistant) to help:
+- Debug and structure Python code in the Kaggle notebook.
+- Design the modeling workflow (monthly aggregation, lag features, and baseline vs. alternative model).
+- Help with structuring of this model card.
+
+All code and text were reveiwed, run, and edited by me to ensure they match the project requirements. The AI assistance helped me work faster, avoid bugs, and better explain my methods and results.
+
