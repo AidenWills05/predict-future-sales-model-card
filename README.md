@@ -6,7 +6,7 @@
 **Date**: November 30, 2025  
 **Model version**: v1.0  
 **License**: MIT License  
-**Model implementation code**: https://www.kaggle.com/code/aidenwilliams020/notebookd3ab0d0b81
+**Model implementation code**: [https://www.kaggle.com/code/aidenwilliams020/notebookd3ab0d0b81](https://www.kaggle.com/code/aidenwilliams020/aiden-williams-predict-sales)
 
 ---
 
